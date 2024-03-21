@@ -1,15 +1,16 @@
 import react from "react";
-import { carrinho, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {  FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface MenuItem {
     id: string;
     nome: string;
     preco: number;
     image: any;
+    mais:any;
 }
 const dados: MenuItem[] = [
-    {id: '1', nome:'𝙓-𝙈𝙞𝙘𝙠𝙚𝙮', preco: 30.99,  image:require('./assets/image/mickey.png')},
-    {id: '2', nome: '𝙓-𝙃𝙪𝙡𝙠', preco: 34.99, image:require('./assets/image/hulk.png')},
+    {id: '1', nome:'𝙓-𝙈𝙞𝙘𝙠𝙚𝙮', preco: 30.99,  image:require('./assets/image/mickey.png'),mais:require('./assets/image/mais.png')},
+    {id: '2', nome: '𝙓-𝙃𝙪𝙡𝙠', preco: 34.99, image:require('./assets/image/hulk.png'),mais:require('./assets/image/mais.png')},
    
 ]
 const renderItem = ({item}: {item: MenuItem}) =>(
@@ -17,20 +18,21 @@ const renderItem = ({item}: {item: MenuItem}) =>(
         <Text style={styles.itemText} >{item.nome}</Text>
         <Text style={styles.itemPreco}>{item.preco}</Text>
         <Image source={item.image}style={styles.image}></Image>
+        <Image source={item.mais}style={styles.image1}></Image>
        
         
     </TouchableOpacity>
 
 );
 
-function FlatListExample(): react.JSX.Element {
+function Carrinho(): react.JSX.Element {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle='light-content'/>
             <View style={styles.header}>
                 <Text style= {styles.headerText}> 𝓜𝓪𝓰𝓲𝓬 𝓑𝓾𝓻𝓰𝓾𝓮𝓻</Text>
             </View>
-            <carrinho
+            <FlatList
         
             showsVerticalScrollIndicator={false}
          
@@ -137,7 +139,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color:'white',
     },
+    image1:{
+        borderRadius:30,
+        width:30,
+        height:30,
+        marginLeft:200,
+        marginVertical:10
+      
+    }
    
 });
 
-export default carrinho.tsx;
+export default Carrinho;

@@ -1,14 +1,15 @@
 
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import { FlatList, ScrollView } from 'react-native';
+
 import FlatListExample from './src/FlatListExample';
+import Carrinho  from './src/carrinho'
+
 
   
 function App(): React.JSX.Element {
   return (
-    <FlatListExample />
+    <FlatListExample/>
 
   );
  

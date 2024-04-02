@@ -10,7 +10,7 @@ interface MenuItem {
     mais:any;
 }
 const dados: MenuItem[] = [
-    {id: '1', nome:'𝙓-𝙈𝙞𝙘𝙠𝙚𝙮', preco: 30.99 ,ingredientes: '𝙋𝙖̃𝙤, 𝙝𝙖𝙢𝙗𝙪𝙧𝙜𝙪𝙚𝙧, 𝙖𝙡𝙛𝙖𝙘𝙚, 𝙩𝙤𝙢𝙖𝙩𝙚 ,𝙢𝙪𝙨𝙨𝙖𝙧𝙚𝙡𝙖, 𝙘𝙝𝙚𝙙𝙙𝙖𝙧,', image:require('./assets/image/mickey.png'),mais:require('./assets/image/cart.png.png')},
+    {id: '1', nome:'𝙓-𝙈𝙞𝙘𝙠𝙚𝙮', preco: 30.99 ,ingredientes: '𝙋𝙖̃𝙤, 𝙝𝙖𝙢𝙗𝙪𝙧𝙜𝙪𝙚𝙧,𝙢𝙪𝙨𝙨𝙖𝙧𝙚𝙡𝙖, 𝙘𝙝𝙚𝙙𝙙𝙖𝙧', image:require('./assets/image/mickey.png'),mais:require('./assets/image/cart.png.png')},
     {id: '2', nome: '𝙓-𝙃𝙪𝙡𝙠', preco: 34.99 ,ingredientes: '𝙋𝙖̃𝙤 𝙫𝙚𝙧𝙙𝙚, 𝙝𝙖𝙢𝙗𝙪𝙧𝙜𝙪𝙚𝙧 ,𝙤𝙫𝙤, 𝙖𝙡𝙛𝙖𝙘𝙚', image:require('./assets/image/hulk.png'),mais:require('./assets/image/cart.png.png')},
     {id: '3', nome: '𝙓- 𝙎𝙥𝙞𝙙𝙚𝙧𝙈𝙖𝙣', preco: 39.99,ingredientes: '𝙋𝙖̃𝙤, 𝙝𝙖𝙢𝙗𝙪𝙧𝙜𝙪𝙚𝙧 ,𝙢𝙪𝙨𝙨𝙖𝙧𝙚𝙡𝙖,𝙨𝙖𝙡𝙖𝙙𝙖', image:require('./assets/image/homemaranha.png'),mais:require('./assets/image/cart.png.png')},
     {id: '4', nome: '𝙓-𝙋𝙤𝙩𝙩𝙚𝙧', preco: 44.99,ingredientes: '𝙋𝙖̃𝙤, 𝙝𝙖𝙢𝙗𝙪𝙧𝙜𝙪𝙚𝙧, 𝙢𝙪𝙨𝙨𝙖𝙧𝙚𝙡𝙖 , 𝙨𝙖𝙡𝙖𝙙𝙖', image:require('./assets/image/potter.png'),mais:require('./assets/image/cart.png.png')},
@@ -63,10 +63,12 @@ function FlatListExample(): react.JSX.Element {
                     />
                    
                 </TouchableOpacity>
+                <TouchableOpacity>
                 <Image
                 source={require('./assets/image/request.png.png')}
                 style={styles.footerIcon}
                 />
+                </TouchableOpacity>
 
                 <TouchableOpacity>
                     <Image 

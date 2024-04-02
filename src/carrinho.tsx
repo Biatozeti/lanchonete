@@ -44,25 +44,28 @@ function Carrinho(): react.JSX.Element {
             <View style={styles.footer}>
                 <TouchableOpacity>
                     <Image
-                    source={require('./assets/image/casa.png')} 
+                    source={require('./assets/image/home.png.png')} 
                     style={styles.footerIcon}
                     />
                    
                 </TouchableOpacity>
+
+                <TouchableOpacity>
                 <Image
-                source={require('./assets/image/requests.png')}
+                source={require('./assets/image/request.png.png')}
                 style={styles.footerIcon}
                 />
+                </TouchableOpacity>
 
                 <TouchableOpacity>
                     <Image 
-                    source={require('./assets/image/perfil.png')}
+                    source={require('./assets/image/me.png.png')}
                     style={styles.footerIcon}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Image 
-                    source={require('./assets/image/menu.png')}
+                    source={require('./assets/image/cardapiopink.png.png')}
                     style={styles.footerIcon}
                     />
                 </TouchableOpacity>

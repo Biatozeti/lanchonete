@@ -3,26 +3,31 @@ import { Image, StatusBar, StyleSheet,Text, TextInput, TouchableOpacity, View } 
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import axios from "axios";
 
-const CadastroProduto: React.FC = () => {
-    const [produtos,setProdutos]= useState<Produto[]>([]);
+const CadastroCliente: React.FC = () => {
+    
     const[nome, setNome] = useState<string>('');
-    const[preco, setPreco] = useState<string>('');
-    const[ingredientes, setIngredientes] = useState<string>('');
-    const[imagem, setImagem] = useState<any>('');
+    const[telefone, setTelefone] = useState<string>('');
+    const[endereco, setEndereco] = useState<string>('');
+    const[email, setEmail] = useState<any>('');
+    const[password, setPassword] = useState<any>('');
+    const[foto, setFoto] = useState<any>('');
 
-    const cadastrarProduto = async () => {
+
+    const cadastroCliente = async () => {
         try{
         const formData = new FormData();
         formData.append('nome', nome);
-        formData.append('preco', preco);
-        formData.append('ingredientes', ingredientes);
-        formData.append('imagem',{
-            uri: imagem,
+        formData.append('telefone', telefone);
+        formData.append('endereco', endereco);
+        formData.append('email',email);
+        formData.append('password',password);
+        formData.append('foto',{
+            uri: foto,
             type: 'image/jpeg',
             name: new Date () + '.jpg'
         });
 
-        const response = await axios.post('http://10.137.11.233:8000/api/produtos', formData, {
+        const response = await axios.post('http://10.137.11.233:8000/api/cliente', formData, {
             headers: {
                 'Content-Type':'multipart/form-data'
             }
@@ -50,7 +55,7 @@ const CadastroProduto: React.FC = () => {
                 console.log('erro ao abrir a camera');
             }else {
                 let imageUri = response.uri|| response.assets?.[0]?.uri;
-            setImagem(imageUri);
+            setFoto(imageUri);
             console.log(imageUri);
                     }
         })
@@ -68,32 +73,36 @@ const CadastroProduto: React.FC = () => {
             if(response.didCancel){
                 console.log('cancelado pelo usuario');
             }else if (response.error){
-                console.log('erro ao abiri a galeria');
+                console.log('erro ao abrir a galeria');
             }else {
                 let imageUri = response.uri || response.assets?.[0]?.uri;
-                setImagem(imageUri)
+                setFoto(imageUri)
             }
 
         })
     }
     return(
         <View style ={Styles.container}>
-            <StatusBar backgroundColor="red" barStyle="light-content"/>
+            <StatusBar backgroundColor="black" barStyle="light-content"/>
             <View style={Styles.header}>
-                <Text style={Styles.headerText}>Top Food</Text>
+                <Text style={Styles.headerText}>𝓜𝓪𝓰𝓲𝓬 𝓑𝓾𝓻𝓰𝓾𝓮𝓻</Text>
                 
 
                 </View>
 
                <View style={Styles.form}>
-                <TextInput style={Styles.input} placeholder="Nome do Produto" value={nome}
+                <TextInput style={Styles.input} placeholder="𝙉𝙊𝙈𝙀" value={nome}
                 onChangeText={setNome}/>
-<TextInput style={Styles.input} placeholder=" Preço" value={preco}
-                onChangeText={setPreco}/>
-                   <TextInput style={Styles.input} placeholder="Ingredientes" value={ingredientes}
-                onChangeText={setIngredientes} multiline/>
+<TextInput style={Styles.input} placeholder=" 𝙏𝙀𝙇𝙀𝙁𝙊𝙉𝙀" value={telefone}
+                onChangeText={setTelefone}/>
+                   <TextInput style={Styles.input} placeholder="𝙀𝙉𝘿𝙀𝙍𝙀𝘾̧𝙊" value={endereco}
+                onChangeText={setEndereco} multiline/>
+                 <TextInput style={Styles.input} placeholder="𝙀𝙈𝘼𝙄𝙇" value={email}
+                onChangeText={setEmail} multiline/>
+                 <TextInput style={Styles.input} placeholder="𝙎𝙀𝙉𝙃𝘼" value={password}
+                onChangeText={setPassword} multiline/>
                 <View style={Styles.alinhamentoImagemSelecionada}>
-                    {imagem ? <Image source={{ uri: imagem}} style={Styles.imagemSelecionada}/>:null}
+                    {foto ? <Image source={{ uri: foto}} style={Styles.imagemSelecionada}/>:null}
                 </View>
                 <TouchableOpacity style={Styles.imageButton}>
                     <Text style={Styles.imageButtonText} onPress={selecionarImagem}>Selecionar</Text>
@@ -102,7 +111,7 @@ const CadastroProduto: React.FC = () => {
                     <Text style={Styles.imageButtonText} onPress={abrirCamera}>Tirar Foto</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={Styles.imageButton}>
-                    <Text style={Styles.imageButtonText} onPress={cadastrarProduto}>Cadastrar Produto</Text>
+                    <Text style={Styles.imageButtonText} onPress={cadastroCliente}>Cadastrar Cliente</Text>
                 </TouchableOpacity>
                </View>
 
@@ -119,14 +128,14 @@ const Styles = StyleSheet.create({
         flex: 1
     },
     header:{
-        backgroundColor: 'red',
-        paddingVertical: 10,
+        backgroundColor: '#E40066',
+        paddingVertical: 20,
         alignItems: 'center'
     },
     headerText: {
-        fontSize:20,
-        fontWeight:'bold',
-        color:'white',
+        fontSize: 40,
+        fontWeight: '100',
+        color:'white'
     },
     form: {
         padding: 10,
@@ -134,15 +143,15 @@ const Styles = StyleSheet.create({
         marginBottom: 10
     },
     input: {
-        height:40,
-        borderColor: 'gray',
-        borderWidth:1,
+        height:50,
+        borderColor: '#E40066',
+        borderWidth:3,
         marginBottom:10,
         paddingHorizontal:10,
         borderRadius: 10
     },
     imageButton: {
-        backgroundColor: 'red',
+        backgroundColor: '#E40066',
         padding: 10,
         borderRadius:5,
         alignItems: 'center',
@@ -163,7 +172,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center'
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: '#E40066',
         padding: 10,
         borderRadius:5,
         alignItems:'center'
@@ -174,4 +183,4 @@ const Styles = StyleSheet.create({
     }
 });
 
-export default CadastroProduto;
+export default CadastroCliente;

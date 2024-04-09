@@ -9,6 +9,7 @@ const CadastroCliente: React.FC = () => {
     const [telefone, setTelefone] = useState<string>('');
     const [endereco, setEndereco] = useState<string>('');
     const [email, setEmail] = useState<any>('');
+    const [cpf, setCpf] = useState<string>('');
     const [password, setPassword] = useState<any>('');
 
     const cadastroCliente = async () => {
@@ -18,8 +19,9 @@ const CadastroCliente: React.FC = () => {
             formData.append('telefone', telefone);
             formData.append('endereco', endereco);
             formData.append('email', email);
+            formData.append('cpf', cpf);
             formData.append('password', password);
-            formData.append('foto', {
+            formData.append('imagem', {
                 uri: foto,
                 type: 'image/jpeg',
                 name: new Date() + '.jpg'
@@ -30,6 +32,7 @@ const CadastroCliente: React.FC = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            console.log(response);
         }
 
         catch (error) {
@@ -112,16 +115,18 @@ const CadastroCliente: React.FC = () => {
                         onChangeText={setEndereco} multiline />
                     <TextInput style={styles.input} placeholder="𝙀𝙈𝘼𝙄𝙇" value={email}
                         onChangeText={setEmail} multiline />
+                        <TextInput style={styles.input} placeholder="CPF" value={cpf}
+                        onChangeText={setCpf} multiline />
                     <TextInput style={styles.input} placeholder="𝙎𝙀𝙉𝙃𝘼" value={password}
                         onChangeText={setPassword} multiline />
                     <TouchableOpacity style={styles.imageButton}>
-                        <Text style={styles.imageButtonText} onPress={selecionarImagem}>Selecionar</Text>
+                        <Text style={styles.imageButtonText} onPress={selecionarImagem}>𝕊𝕖𝕝𝕖𝕔𝕚𝕠𝕟𝕒𝕣</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.imageButton}>
-                        <Text style={styles.imageButtonText} onPress={abrirCamera}>Tirar Foto</Text>
+                        <Text style={styles.imageButtonText} onPress={abrirCamera}>𝕋𝕚𝕣𝕒𝕣 𝔽𝕠𝕥𝕠</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.imageButton}>
-                        <Text style={styles.imageButtonText} onPress={cadastroCliente}>Cadastrar Cliente</Text>
+                        <Text style={styles.imageButtonText} onPress={cadastroCliente}>ℂ𝕒𝕕𝕒𝕤𝕥𝕣𝕒𝕣 ℂ𝕝𝕚𝕖𝕟𝕥𝕖</Text>
                     </TouchableOpacity>
                     
                 </View>
@@ -206,7 +211,7 @@ const styles = StyleSheet.create({
     },
     imageButton: {
         backgroundColor: '#E40066',
-        padding: 30,
+        padding: 20,
         borderRadius: 50,
         alignItems: 'center',
         marginBottom: 10
@@ -214,6 +219,7 @@ const styles = StyleSheet.create({
     imageButtonText: {
         color: 'white',
         fontWeight: 'bold',
+        fontSize: 20,
 
     },
     imagemSelecionada: {

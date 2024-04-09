@@ -77,35 +77,68 @@ const CadastroProduto: React.FC = () => {
         })
     }
     return(
-        <View style ={Styles.container}>
-            <StatusBar backgroundColor="red" barStyle="light-content"/>
-            <View style={Styles.header}>
-                <Text style={Styles.headerText}>Top Food</Text>
+        <View style ={styles.container}>
+            <StatusBar backgroundColor="black" barStyle="light-content"/>
+            <View style={styles.header}>
+                <Text style={styles.headerText}>𝓜𝓪𝓰𝓲𝓬 𝓑𝓾𝓻𝓰𝓾𝓮𝓻</Text>
+                </View>
                 
 
-                </View>
-
-               <View style={Styles.form}>
-                <TextInput style={Styles.input} placeholder="Nome do Produto" value={nome}
+               <View style={styles.form}>
+                <TextInput style={styles.input} placeholder="Nome do Produto" value={nome}
                 onChangeText={setNome}/>
-<TextInput style={Styles.input} placeholder=" Preço" value={preco}
+<TextInput style={styles.input} placeholder=" Preço" value={preco}
                 onChangeText={setPreco}/>
-                   <TextInput style={Styles.input} placeholder="Ingredientes" value={ingredientes}
+                   <TextInput style={styles.input} placeholder="Ingredientes" value={ingredientes}
                 onChangeText={setIngredientes} multiline/>
-                <View style={Styles.alinhamentoImagemSelecionada}>
-                    {imagem ? <Image source={{ uri: imagem}} style={Styles.imagemSelecionada}/>:null}
+                <View style={styles.alinhamentoImagemSelecionada}>
+                    {imagem ? <Image source={{ uri: imagem}} style={styles.imagemSelecionada}/>:null}
                 </View>
-                <TouchableOpacity style={Styles.imageButton}>
-                    <Text style={Styles.imageButtonText} onPress={selecionarImagem}>Selecionar</Text>
+                <TouchableOpacity style={styles.imageButton}>
+                    <Text style={styles.imageButtonText} onPress={selecionarImagem}>Selecionar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={Styles.imageButton}>
-                    <Text style={Styles.imageButtonText} onPress={abrirCamera}>Tirar Foto</Text>
+                <TouchableOpacity style={styles.imageButton}>
+                    <Text style={styles.imageButtonText} onPress={abrirCamera}>Tirar Foto</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={Styles.imageButton}>
-                    <Text style={Styles.imageButtonText} onPress={cadastrarProduto}>Cadastrar Produto</Text>
+                <TouchableOpacity style={styles.imageButton}>
+                    <Text style={styles.imageButtonText} onPress={cadastrarProduto}>Cadastrar Produto</Text>
                 </TouchableOpacity>
                </View>
+               <View style={styles.footer}>
+                <TouchableOpacity>
+                    <Image
+                    source={require('../assets/image/home.png.png')} 
+                    style={styles.footerIcon}
+                    />
+                   
+                </TouchableOpacity>
+                <TouchableOpacity>
+                <Image
+                source={require('../assets/image/request.png.png')}
+                style={styles.footerIcon}
+                />
+                </TouchableOpacity>
 
+                <TouchableOpacity>
+                    <Image 
+                    source={require('../assets/image/me.png.png')}
+                    style={styles.footerIcon}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Image 
+                    source={require('../assets/image/cardapiopink.png.png')}
+                    style={styles.footerIcon}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Image 
+                    source={require('../assets/image/cart.png.png')}
+                    style={styles.footerIcon}
+                    />
+                </TouchableOpacity>
+
+                </View>
                 </View>
         
 
@@ -113,18 +146,18 @@ const CadastroProduto: React.FC = () => {
     );
 }
 
-const Styles = StyleSheet.create({
+const styles = StyleSheet.create({
 
     container:{
         flex: 1
     },
     header:{
-        backgroundColor: 'red',
-        paddingVertical: 10,
+        backgroundColor: '#E40066',
+        paddingVertical: 20,
         alignItems: 'center'
     },
     headerText: {
-        fontSize:20,
+        fontSize:40,
         fontWeight:'bold',
         color:'white',
     },
@@ -134,17 +167,17 @@ const Styles = StyleSheet.create({
         marginBottom: 10
     },
     input: {
-        height:40,
-        borderColor: 'gray',
-        borderWidth:1,
+        height:50,
+        borderColor: '#E40066',
+        borderWidth:4,
         marginBottom:10,
         paddingHorizontal:10,
-        borderRadius: 10
+        borderRadius: 15
     },
     imageButton: {
-        backgroundColor: 'red',
-        padding: 10,
-        borderRadius:5,
+        backgroundColor: '#E40066',
+        padding: 30,
+        borderRadius:50,
         alignItems: 'center',
         marginBottom:10
     },
@@ -163,7 +196,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center'
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: '#E40066',
         padding: 10,
         borderRadius:5,
         alignItems:'center'
@@ -171,7 +204,21 @@ const Styles = StyleSheet.create({
     buttonText: {
         color:'white',
         fontWeight: 'bold',
-    }
+    },
+    footer: {
+        borderRadius: 0.2,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        paddingVertical: 20,
+        marginTop:'auto'
+    },
+    footerIcon:{
+        width: 30,
+        height: 30,
+        backgroundColor: 'white'
+           },
 });
 
 export default CadastroProduto;

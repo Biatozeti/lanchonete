@@ -99,11 +99,11 @@ const CadastroProduto: React.FC = () => {
 
 
                     <View style={styles.form}>
-                        <TextInput style={styles.input} placeholder="Nome do Produto" value={nome}
+                        <TextInput style={styles.input} placeholder="𝙉𝙊𝙈𝙀 𝘿𝙊 𝙋𝙍𝙊𝘿𝙐𝙏𝙊" value={nome}
                             onChangeText={setNome} />
-                        <TextInput style={styles.input} placeholder=" Preço" value={preco}
+                        <TextInput style={styles.input} placeholder=" 𝙋𝙍𝙀𝘾̧𝙊" value={preco}
                             onChangeText={setPreco} />
-                        <TextInput style={styles.input} placeholder="Ingredientes" value={ingredientes}
+                        <TextInput style={styles.input} placeholder="𝙄𝙉𝙂𝙍𝙀𝘿𝙄𝙀𝙉𝙏𝙀𝙎" value={ingredientes}
                             onChangeText={setIngredientes} multiline />
                         <View style={styles.alinhamentoImagemSelecionada}>
                             {imagem ? <Image source={{ uri: imagem }} style={styles.imagemSelecionada} /> : null}

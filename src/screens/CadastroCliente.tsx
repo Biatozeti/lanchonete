@@ -70,7 +70,7 @@ const CadastroCliente: React.FC = () => {
             maxWidth: 2000
         };
 
-        launchImageLibrary(option, (response) => {
+        launchImageLibrary(options, (response) => {
             if (response.didCancel) {
                 console.log('cancelado pelo usuario');
             } else if (response.error) {
@@ -115,7 +115,7 @@ const CadastroCliente: React.FC = () => {
                         onChangeText={setEndereco} multiline />
                     <TextInput style={styles.input} placeholder="𝙀𝙈𝘼𝙄𝙇" value={email}
                         onChangeText={setEmail} multiline />
-                        <TextInput style={styles.input} placeholder="CPF" value={cpf}
+                        <TextInput style={styles.input} placeholder="𝘾𝙋𝙁" value={cpf}
                         onChangeText={setCpf} multiline />
                     <TextInput style={styles.input} placeholder="𝙎𝙀𝙉𝙃𝘼" value={password}
                         onChangeText={setPassword} multiline />

@@ -11,8 +11,8 @@ import CadastroCliente from './src/screens/CadastroCliente';
   
 function App(): React.JSX.Element {
   return (
-  <Cardapio/>
-//<CadastroCliente/>
+  //<Cardapio/>
+<CadastroCliente/>
 //<CadastroProduto/>
 //<Carrinho/>
   

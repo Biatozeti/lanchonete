@@ -84,20 +84,12 @@ const CadastroCliente: React.FC = () => {
     }
     return (
 
-        <View style={styles.container}>
-            <StatusBar backgroundColor="black" barStyle="light-content" />
-            <View style={styles.header}>
-                <Text style={styles.headerText}>𝓜𝓪𝓰𝓲𝓬 𝓑𝓾𝓻𝓰𝓾𝓮𝓻</Text>
-
-
-            </View>
-
+       
             <View style={styles.container1}>
                 <StatusBar backgroundColor="black" barStyle="light-content" />
-                <View style={styles.header1}>
-                    <Text style={styles.headerText1}>CADASTRO CLIENTE</Text>
-
-                </View>
+                <View style={styles.header}>
+                <Image source={require('../assets/image/iconmagic.png')} style={styles.headerIcon}/>
+            </View>
 
                 <ScrollView>
 
@@ -169,8 +161,7 @@ const CadastroCliente: React.FC = () => {
                 </View>
 
             </View>
-        </View>
-        
+       
 
 
 
@@ -185,6 +176,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
+
+headerIcon: {
+    width: 255,
+    height: 255,
+    marginBottom: -110,
+    marginTop: -80
+},
     header: {
         backgroundColor: '#E40066',
         paddingVertical: 20,

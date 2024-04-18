@@ -30,7 +30,7 @@ function Carrinho(): react.JSX.Element {
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle='light-content'/>
             <View style={styles.header}>
-                <Text style= {styles.headerText}> 𝓜𝓪𝓰𝓲𝓬 𝓑𝓾𝓻𝓰𝓾𝓮𝓻</Text>
+                <Image source={require('./assets/image/iconmagic.png')} style={styles.headerIcon}/>
             </View>
             <FlatList
         
@@ -88,8 +88,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
 
-
-    },
+},
+headerIcon: {
+    width: 255,
+    height: 255,
+    marginBottom: -120,
+    marginTop: -90
+},
     item: {
         borderRadius: 10,
         backgroundColor: 'black',
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: '#E40066',
         alignItems:'center',
-        paddingVertical: 10
+        paddingVertical: 30
 
     },
     headerText: {

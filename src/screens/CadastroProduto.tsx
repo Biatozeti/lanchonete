@@ -82,15 +82,12 @@ const CadastroProduto: React.FC = () => {
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle="light-content" />
             <View style={styles.header}>
-                <Text style={styles.headerText}>𝓜𝓪𝓰𝓲𝓬 𝓑𝓾𝓻𝓰𝓾𝓮𝓻</Text>
+                <Image source={require('../assets/image/iconmagic.png')} style={styles.headerIcon}/>
             </View>
 
             <View style={styles.container}>
                 <StatusBar backgroundColor="black" barStyle="light-content" />
-                <View style={styles.header}>
-                    <Text style={styles.headerText1}>CADASTRO PRODUTO</Text>
-
-                </View>
+            
                 <ScrollView>
 
 
@@ -167,14 +164,21 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1
-    },
+
+},
+headerIcon: {
+    width: 255,
+    height: 255,
+    marginBottom: -110,
+    marginTop: -80
+},
     header: {
         backgroundColor: '#E40066',
         paddingVertical: 20,
         alignItems: 'center'
     },
     headerText: {
-        fontSize: 50,
+        fontSize: 0,
         fontWeight: '100',
         color: 'white',
     },

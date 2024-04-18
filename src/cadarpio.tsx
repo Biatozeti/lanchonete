@@ -14,31 +14,29 @@ const renderItem = ({item}: {item: Produto}) =>(
 
 );
 
-function FlatListExample(): react.JSX.Element {
+function Cardapio(): react.JSX.Element {
 
 
     const [produtos, setProdutos] = useState<Produto[]>([]);
  
-    const [error, setError] = useState("");
+    const [erro, setErro] = useState("");
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get<Produto[]>('http://10.137.11.233:8000/api/produtosIndex');
+                const response = await axios.get('http://10.137.11.233:8000/api/produtos/index');
                 setProdutos(response.data);
-                console.log(response.data);
 
-
+                console.log(produtos)
             } catch (error) {
-                setError("Ocorreu um erro");
+                setErro("Ocorreu um erro");
                 console.log(error);
-
             }
-
         }
 
         fetchData();
     }, []);
+
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle='light-content'/>
@@ -169,4 +167,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FlatListExample;
+export default Cardapio;

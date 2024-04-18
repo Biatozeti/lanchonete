@@ -21,14 +21,14 @@ const CadastroProduto: React.FC = () => {
                 type: 'image/jpeg',
                 name: new Date() + '.jpg'
             });
-            
+
             console.log(formData);
-            const response = await axios.post('http://10.137.11.233:8000/api/produtos', formData, {
+            const response = await axios.post('http://10.137.11.233:8000/api/produtos/store', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            console.log(response);
+
         }
 
         catch (error) {
@@ -115,7 +115,7 @@ const CadastroProduto: React.FC = () => {
                             <Text style={styles.imageButtonText} onPress={abrirCamera}>𝕋𝕚𝕣𝕒𝕣 𝔽𝕠𝕥𝕠</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.imageButton}>
-                            <Text style={styles.imageButtonText} onPress={cadastrarProduto}>ℂ𝕒𝕕𝕒𝕤𝕥𝕣𝕒𝕣 ℂ𝕝𝕚𝕖𝕟𝕥𝕖</Text>
+                            <Text style={styles.imageButtonText} onPress={cadastrarProduto}>ℂ𝕒𝕕𝕒𝕤𝕥𝕣𝕒𝕣 Produto</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
         fontWeight: '300',
         color: 'white',
     },
-    
+
 });
 
 export default CadastroProduto;

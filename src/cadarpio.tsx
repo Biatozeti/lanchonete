@@ -1,6 +1,7 @@
 import react, { useEffect, useState } from "react";
 import { FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import axios from "axios";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 
 
@@ -36,7 +37,7 @@ function Cardapio(): react.JSX.Element {
 
         fetchData();
     }, []);
-
+const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle='light-content'/>
@@ -60,7 +61,7 @@ function Cardapio(): react.JSX.Element {
                     />
                    
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() =>navigation.navigate('Cardapio')}>
                 <Image
                 source={require('./assets/image/request.png.png')}
                 style={styles.footerIcon}

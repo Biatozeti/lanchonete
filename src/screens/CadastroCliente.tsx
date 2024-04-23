@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Image, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
 const CadastroCliente: React.FC = () => {
+
+   
     const [foto, setFoto] = useState<any>('');
     const [nome, setNome] = useState<string>('');
     const [telefone, setTelefone] = useState<string>('');
@@ -27,7 +30,7 @@ const CadastroCliente: React.FC = () => {
                 name: new Date() + '.jpg'
             });
 
-            const response = await axios.post('http://10.137.11.233:8000/api/cliente', formData, {
+            const response = await axios.post('http://10.137.11.220:8000/api/cliente', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -82,6 +85,7 @@ const CadastroCliente: React.FC = () => {
 
         })
     }
+    const navigation = useNavigation();
     return (
 
        
@@ -133,20 +137,20 @@ const CadastroCliente: React.FC = () => {
                         />
 
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.navigate('CadastroCliente')}>
                         <Image
                             source={require('../assets/image/request.png.png')}
                             style={styles.footerIcon}
                         />
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.navigate('CadastroCliente')}>
                         <Image
                             source={require('../assets/image/me.png.png')}
                             style={styles.footerIcon}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.navigate('CadastroCliente')}>
                         <Image
                             source={require('../assets/image/cardapiopink.png.png')}
                             style={styles.footerIcon}

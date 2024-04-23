@@ -23,7 +23,7 @@ const CadastroProduto: React.FC = () => {
             });
 
             console.log(formData);
-            const response = await axios.post('http://10.137.11.233:8000/api/produtos/store', formData, {
+            const response = await axios.post('http://10.137.11.220:8000/api/produtos/store', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -118,7 +118,7 @@ const CadastroProduto: React.FC = () => {
                 </ScrollView>
 
                 <View style={styles.footer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity >
                         <Image
                             source={require('../assets/image/home.png.png')}
                             style={styles.footerIcon}
